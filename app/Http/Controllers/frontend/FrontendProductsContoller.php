@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\categoryMaster;
 use App\Models\ProductMaster;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class FrontendHomeController extends Controller
+class FrontendProductsContoller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,14 +15,6 @@ class FrontendHomeController extends Controller
     public function index()
     {
         //
-        // $user = Auth::user();
-        // dd($user);
-        $products = ProductMaster::get();
-        $category = categoryMaster::get();
-        return view('frontend.home',[
-            'products' => $products,
-            'category' => $category,    
-        ]);
     }
 
     /**
@@ -40,6 +31,7 @@ class FrontendHomeController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -48,6 +40,11 @@ class FrontendHomeController extends Controller
     public function show(string $id)
     {
         //
+        $product = ProductMaster::findOrFail($id);
+        // $category = categoryMaster::get();
+        return view('frontend.products.show',[
+            'product' => $product,
+        ]);
     }
 
     /**

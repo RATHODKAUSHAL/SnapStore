@@ -65,7 +65,7 @@
 
                 <!-- Product -->
                 <li>
-                    <a href="#" class="flex items-center hover:bg-gray-700 p-2 rounded">
+                    <a href="{{ route('product.index') }}" class="flex items-center hover:bg-gray-700 p-2 rounded">
                         <i class="fa-solid fa-box mr-3"></i>
                         <span>Product</span>
                     </a>
