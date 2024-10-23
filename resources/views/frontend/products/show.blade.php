@@ -81,10 +81,10 @@
 
         {{-- {/* Cart Section */} --}}
         <div class=''>
-            <button class='text-white text-lg flex items-center gap-2 hover:underline'>
+            <a href="{{ route('cart.index') }}" class='text-white text-lg flex items-center gap-2 hover:underline'>
                 <i class="fa-solid fa-cart-shopping"></i>
                 Cart {{-- <ShoppingCartOutlinedIcon sx={{ fontSize: 30 }} /> --}}
-            </button>
+            </a>
         </div>
     </nav>
 
@@ -113,6 +113,9 @@
 </nav>
 
 {{-- peoduct section --}}
+<form action="{{ route('cart.store',  $product->id) }}" method="POST">
+
+    @csrf
 <div>
     <div>
         <div class="m-4">
@@ -144,20 +147,45 @@
                         <p class="text-sm font-normal">EMI staring at ₹2499. no cost EMI available</p>
                     </div>
                     <hr>
-                    <div class="flex flex-row w-auto">
-                        <div>
-                            <i class="fa-solid fa-box-archive text-lg"></i>
+                    
+                    <div class="flex flex-row">
+                        
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-box-archive text-lg" style="color: #f56e00;"></i>
                             <p class="text-sm font-normal">7  days service center Replacement </p>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-truck-fast"></i>
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-truck-fast" style="color: #f56e00;"></i>
                             <p class="text-sm font-normal">fast delivery</p>
                         </div>
-                        <div>
-                            <i class="fa-solid fa-shield"></i>
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-shield" style="color: #f56e00;"></i>
                             <p class="text-sm font-normal">1 year warrany</p>
                         </div>
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-award" style="color: #f56e00;"></i>
+                            <p class="text-sm font-normal">Top brand</p>
+                        </div>
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-screwdriver-wrench" style="color: #f56e00;" ></i>
+                            <p class="text-sm font-normal">Installation available</p>
+                        </div>
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-truck-ramp-box" style="color: #f56e00;"></i>
+                            <p class="text-sm font-normal">Snapstore Deliver</p>
+                        </div>
+                        <div class="h-10  w-24">
+                            <i class="fa-solid fa-lock" style="color: #f56e00;"></i>
+                            <p class="text-sm font-normal">Secure transction</p>
+                        </div>
                     </div>
+                    
+                        <div class="mt-20">
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button type="submit" class="px-10 p-2 bg-yellow-500 hover:bg-yellow-400 rounded-full text-lg text-white">Add to cart</button>
+                            <a href="" class="px-10 p-2 bg-orange-600 hover:bg-orange-500 rounded-full text-lg text-white">Buy Now</a>
+                        </div> 
+                    
                 </div>
                 <div class="w-2/5 border left-10 mr-5 rounded-md">
                     <div class="bg-gray-300  p-5 border-b border-gray-400 ">
@@ -175,6 +203,7 @@
         </div>
     </div>      
 </div>
+</form>
 
 </body>
 

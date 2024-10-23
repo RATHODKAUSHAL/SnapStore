@@ -19,7 +19,7 @@ return new class extends Migration
             // $table->string('category_name')->nullable();
             $table->string('product_size')->nullable();
             $table->string('product_model')->nullable();
-            $table->string('product_price')->nullable();
+            $table->decimal('product_price', 10, 2)->nullable();
             $table->string('product_image')->nullable();
             $table->string('product_discount')->nullable();
             $table->string('product_description')->nullable();

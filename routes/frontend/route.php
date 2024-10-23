@@ -4,6 +4,7 @@ use App\Http\Controllers\frontend\FrontendHomeController;
 use App\Http\Controllers\frontend\FrontendLoginController;
 use App\Http\Controllers\frontend\FrontendProductsContoller;
 use App\Http\Controllers\frontend\FrontendSignInController;
+use App\Http\Controllers\frontend\FronendCartController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,4 +17,5 @@ Route::resource('signin', FrontendSignInController::class);
 Route::middleware(['admin'])->group(function() {
     Route::get('/',[FrontendHomeController::class, 'index'])->name('dashboard');
     Route::resource('products', FrontendProductsContoller::class );
+    Route::resource('cart', FronendCartController::class);
 }); 
