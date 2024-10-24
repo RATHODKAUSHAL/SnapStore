@@ -138,9 +138,10 @@
                     <div>
                         <button class="bg-red-700 text-white text-sm p-1 rounded-md">great indian festival</button>
                         <div class="flex flex-row gap-2 my-2">
-                            <p class="text-red-700 font-normal">-{{ $product->product_discount }}</p>
-                        <p>{{ $product->product_price }}.00</p>
+                            <p class="text-red-700 font-normal">-{{ $product->product_discount }}%</p>
+                        <p>₹{{ $product->final_price }}.00</p>
                         </div>
+                        <del class="text-sm font-normal">₹{{ $product->product_price }}</del>
                     </div>
                     <div class="my-3">
                         <p class="text-sm font-normal">inclusive of all taxes</p>

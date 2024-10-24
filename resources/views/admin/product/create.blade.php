@@ -107,9 +107,17 @@
                 <div>
                     <label for="product_discount" class="block text-sm font-medium text-gray-500 mb-2">Product Discount</label>
                     <input  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
-                           id="product_discount" name="product_discount" type="text" value="{{ old('product_discount', @$products->product_discount) }}" placeholder="Enter Product Model"/> 
+                           id="product_discount" name="product_discount" type="text" value="{{ old('product_discount', @$products->product_discount) }}" placeholder="Enter Product Discount"/> 
                     @if ($errors->has('product_discount'))
                         <p class="mt-2 text-sm text-red-600">{{ $errors->first('product_discount') }}</p>
+                    @endif
+                </div>
+                <div>
+                    <label for="final_price" class="block text-sm font-medium text-gray-500 mb-2">Final Price</label>
+                    <input  class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
+                           id="final_price" name="final_price" type="text" value="{{ old('final_price', @$products->final_price) }}" placeholder="Enter Product Final Price"/> 
+                    @if ($errors->has('final_price'))
+                        <p class="mt-2 text-sm text-red-600">{{ $errors->first('final_price') }}</p>
                     @endif
                 </div>
                 <div>

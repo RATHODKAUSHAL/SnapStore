@@ -108,51 +108,107 @@
             </ul>
         </div>
     </nav>
-    <div class="bg-white m-10">
-        <div class="p-4">
-            <div class="">
-                <h1 class="text-3xl py-2">Shopping Cart</h1>
-                <a href="" class="text-green-800">Deselect all items</a>
-            </div>
-            <hr>
-
-            @foreach ($cart as $carts)
-                <div class="flex flex-row p-4 bg-white rounded-lg w-full items-center space-x-4">
-                    <!-- Product Image -->
-                    <div class="w-1/4">
-                        <img class="w-full h-auto object-cover rounded-md"
-                            src="{{ asset($carts->product->product_image) }}" alt="Product Image">
-                    </div>
-
-                    <!-- Product Details -->
-                    <div class="flex-1 space-y-2">
-                        <h2 class="text-xl font-semibold text-gray-800">{{ $carts->product->product_name }}</h2>
-                        <p class="text-sm text-green-600 font-medium">In Stock</p>
-                        <p class="text-sm text-gray-500">Size: {{ $carts->product->product_size }}</p>
-                    </div>
-
-                    <!-- Product Price and Discount -->
-                    <div class="flex flex-col items-end space-y-2">
-                        <p>{{ number_format(floatval((int) $carts->product->product_price)) }}</p>
-
-                        @if ($carts->product->product_discount)
-                            <p class="text-sm text-red-500 font-semibold">Discount:
-                                {{ $carts->product->product_discount }} Off</p>
-                        @endif
-                        <p class="text-sm"><del>{{ $carts->product->product_price }}</del> ₹</p>
-
-                    </div>
+        <section class="flex flex-row">
+            <div class="bg-white m-8">
+            <div class="p-4">
+                <div class="">
+                    <h1 class="text-3xl py-2">Shopping Cart</h1>
+                    <a href="" class="text-green-800">Deselect all items</a>
                 </div>
                 <hr>
-            @endforeach
+    
+                @foreach ($cart as $carts)
+                    <div class="flex flex-row p-4 bg-white rounded-lg w-full items-center space-x-4">
+                        <!-- Product Image -->
+                        <div class="w-1/4">
+                            <a href="{{ route('products.show', $carts->product) }}"><img class="w-full h-auto object-cover rounded-md"
+                                src="{{ asset($carts->product->product_image) }}" alt="Product Image"></a>
+                        </div>
+    
+                       <!-- Product Details -->
+                        <div class="flex-1 space-y-2">
+                            <h2 class="text-xl font-semibold text-gray-800">{{ $carts->product->product_name }}</h2>
+                            <p class="text-sm text-green-600 font-medium">In Stock</p>
+                            <p class="text-sm text-gray-500">Size: {{ $carts->product->product_size }}</p>
+                            <div class="flex items-center gap-3 pt-3">
+                                <i class="fa-solid fa-trash"></i><input value="1" type="number" class="border-black border rounded-full px-7"/>
+                                <button><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                            <div class="flex pt-4 flex-row gap-3 text-sm text-emerald-600">
+                                <form action="{{ route('cart.destroy', $carts->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="hover:text-teal-500 hover:underline"
+                                        href="">Delete</button> |
+                                </form>
+                                <a class="hover:text-teal-500 hover:underline" href="">Save For later</a> |
+                                <a class="hover:text-teal-500 hover:underline" href="">See More Like this</a> |
+                                <a class="hover:text-teal-500 hover:underline" href="">Share</a>
+                            </div>
+                        </div>
+    
+                        <!-- Product Price and Discount -->
+                        <div class="flex flex-col items-end space-y-2">
+                            <p>{{ $carts->product->final_price }}</p>
+    
+                            @if ($carts->product->product_discount)
+                                <p class="text-sm text-red-500 font-semibold">Discount:
+                                    -{{ $carts->product->product_discount }} Off</p>
+                            @endif
+                            <p class="text-sm"><del>{{ $carts->product->product_price }}</del> ₹</p>
+    
+                        </div>
+    
+                    </div>
+                    <hr>
+                @endforeach
+    
+            </div>
+            
+            <div class="flex flex-row justify-end p-5">
+                <h1 class="font-medium text-xl"> Final price :</h1>
+                <p class="text-xl font-medium" id="finalprice"></p>
+            </div>
+        </div> 
+        <div class="mt-8 h-1/2 bg-white w-1/4">
+            <div class="mt-5 m-3">
+                <div class="flex flex-row gap-2">
+                    <button class="w-4/5 bg-green-700 rounded-full text-green-700">.</button>
+                <p class="gap-2 text-sm"><i class="fa-solid fa-indian-rupee-sign" class="text-green-700 text-sm">499</i></p>
+                </div>
+                @if ($carts->product->product_price > 499)
+                   <div class="text-[12px] p-2">
+                    <p class="text-green-700 font-medium">Your order is eligible for FREE Delivery.</p>
+                    <p> Choose FREE Delivery option at checkout.</p>
+                   </div>
+                @else
+                    <p>Your order is not eligible for FREE Delivery.</p>
+                    <p>Add More Items To Get Free Delivery</p>
+                @endif
+
+                <div class="flex items-center justify-center">
+                    <a type="submit" href="{{ route('orders.index') }}" class="w-4/5 p-1 font-mono text-center bg-yellow-300 rounded-full ">Procced To  Buy</a>
+                </div>
+            </div>
 
         </div>
-        <div class="text-right pr-5">
-           <div>
-            <h1 class="font-medium text-xl"> Final price :</h1>
-
-        </div>
-    </div>
+    </section>
 </body>
+
+<script>
+    // Get the final price element
+    const finalPriceElement = document.getElementById('finalprice');
+
+    // Initialize total price variable
+    let totalPrice = 0;
+
+    // Loop through each cart item and add the final price
+    @foreach ($cart as $carts)
+        totalPrice += parseFloat('{{ $carts->product->final_price }}');
+    @endforeach
+
+    // Display the total price in the final price element
+    finalPriceElement.textContent = ₹ ${totalPrice.toFixed(2)};
+</script>
 
 </html>

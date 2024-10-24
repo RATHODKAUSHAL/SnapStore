@@ -20,8 +20,9 @@ return new class extends Migration
             $table->string('product_size')->nullable();
             $table->string('product_model')->nullable();
             $table->decimal('product_price', 10, 2)->nullable();
+            $table->decimal('final_price', 10, 2)->nullable();
             $table->string('product_image')->nullable();
-            $table->string('product_discount')->nullable();
+            $table->decimal('product_discount', 10, 2)->nullable();
             $table->string('product_description')->nullable();
             $table->string('product_rating')->nullable();
             $table->timestamps();

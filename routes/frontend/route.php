@@ -5,6 +5,8 @@ use App\Http\Controllers\frontend\FrontendLoginController;
 use App\Http\Controllers\frontend\FrontendProductsContoller;
 use App\Http\Controllers\frontend\FrontendSignInController;
 use App\Http\Controllers\frontend\FronendCartController;
+use App\Http\Controllers\frontend\FrontendOrderController;
+use App\Http\Controllers\frontend\FrontendStripeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,4 +20,6 @@ Route::middleware(['admin'])->group(function() {
     Route::get('/',[FrontendHomeController::class, 'index'])->name('dashboard');
     Route::resource('products', FrontendProductsContoller::class );
     Route::resource('cart', FronendCartController::class);
+    Route::resource('orders', FrontendOrderController::class);
+    Route::post('/session', [FrontendStripeController::class, 'session'])->name('stripe.session');
 }); 

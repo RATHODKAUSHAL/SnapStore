@@ -32,7 +32,7 @@
                     <img class="w-full h-auto" src="{{ asset($product->product_image) }}" alt="{{ $product->product_name }}">
                 </div>
                 <div class="flex flex-row gap-2 mt-2">
-                    <button class="bg-red-700 rounded-md p-1 text-sm text-white">-{{ $product->product_discount }} off</button>
+                    <button class="bg-red-700 rounded-md p-1 text-sm text-white">-{{ $product->product_discount }}% off</button>
                     <p class="text-red-700 text-sm font-medium">Great Indian festival</p>
                 </div>
                 <div class="mt-2">

@@ -56,6 +56,7 @@ class AdminProductController extends Controller
         $products->product_size = $request->product_size;
         $products->product_model = $request->product_model;
         $products->product_price = $request->product_price;
+        $products->final_price = $request->final_price;
         $products->product_image = $path.$filename;// image upload 
         $products->product_discount = $request->product_discount;
         $products->product_description = $request->product_description;

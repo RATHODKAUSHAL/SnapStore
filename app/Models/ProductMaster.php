@@ -12,7 +12,7 @@ class ProductMaster extends Model
     protected $table = 'product';
 
     protected $fillable = [
-        'product_name', "company_name", 'category_id',  'product_size', 'product_size', 
+        'product_name', "company_name", "final_price", 'category_id',  'product_size', 'product_size', 
         'product_price', 'product_image', 'product_discount', 'product_description', 'product_rating' 
     ];
 

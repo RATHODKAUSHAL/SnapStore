@@ -85,9 +85,12 @@ class AdminCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request,string $id)
     {
         //
+        $category = categoryMaster::find($id);
+        $category->delete($request->all());
+        return redirect()->route('category.index')->with('success', 'category deleted successfully deleted');
     }
 
     public function search(Request $request){

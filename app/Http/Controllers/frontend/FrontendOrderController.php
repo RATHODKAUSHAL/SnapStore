@@ -4,12 +4,9 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\CartMaster;
-use App\Models\ProductMaster;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class FronendCartController extends Controller
+class FrontendOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +15,9 @@ class FronendCartController extends Controller
     {
         //
         $cart = CartMaster::get();
-        return view('frontend.cart.index', [
-            'cart' => $cart,
+        return  view('frontend.orders.index',[
+            'cart' => $cart
         ]);
-        
     }
 
     /**
@@ -38,18 +34,6 @@ class FronendCartController extends Controller
     public function store(Request $request)
     {
         //
-        if(Auth::id()){
-            $user = auth()->user();
-            $product_id = $request->input('product_id');
-            $cart = new CartMaster();
-            $cart->user_id = $user->id;
-            $cart->product_id = $product_id;
-            $cart->save();
-
-            return redirect()->route('cart.index');
-        }else{
-            return redirect()->route('auth.login');
-        }
     }
 
     /**
@@ -58,7 +42,6 @@ class FronendCartController extends Controller
     public function show(string $id)
     {
         //
-        
     }
 
     /**
@@ -80,11 +63,8 @@ class FronendCartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy( Request $request ,string $id)
+    public function destroy(string $id)
     {
         //
-        $cart = CartMaster::find($id);
-        $cart->delete($request->all());
-        return redirect()->route('cart.index')->with('success', 'Product  has been removed from cart');
     }
 }
