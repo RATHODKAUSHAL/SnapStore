@@ -17,9 +17,11 @@ class FronendCartController extends Controller
     public function index()
     {
         //
-        $cart = CartMaster::get();
+        $cart = CartMaster::where('user_id')->get();
+        $products = ProductMaster::get();
         return view('frontend.cart.index', [
             'cart' => $cart,
+            'products' => $products,
         ]);
         
     }

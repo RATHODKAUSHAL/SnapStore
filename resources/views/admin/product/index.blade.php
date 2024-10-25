@@ -143,7 +143,7 @@
                                                     {{ $product->category->category_name }}
                                                 </td>
                                                 <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
-                                                    {{ $product->product_price }}
+                                                    {{ $product->final_price }}
                                                 </td>
                                                 <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
                                                     <img class="w-[80px]" src="{{ asset($product->product_image) }}"

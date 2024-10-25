@@ -37,8 +37,8 @@
                 </div>
                 <div class="mt-2">
                     <p class="text-base">
-                        ₹{{$product->product_price }}
-                        <del class="text-[10px]">₹56,990</del>
+                        ₹{{$product->final_price }}
+                        <del class="text-[10px]">₹{{ $product->product_price }}</del>
                     </p>
                     <p class="text-[12px]">{{ $product->product_name }}</p>
                 </div>

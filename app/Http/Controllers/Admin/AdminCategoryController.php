@@ -118,4 +118,21 @@ class AdminCategoryController extends Controller
             'category' => $category->toArray()
         ]);
     }
+
+    // In your routes file
+
+
+// In your CategoryController
+public function updateOrder(Request $request)
+{
+    $orderedIds = $request->input('ordered_ids'); // Array of ordered category IDs
+
+    foreach ($orderedIds as $index => $id) {
+        // Assuming you have a 'position' field to determine order
+        categoryMaster::where('id', $id)->update(['position' => $index]);
+    }
+
+    return response()->json(['message' => 'Order updated successfully.']);
+}
+
 }

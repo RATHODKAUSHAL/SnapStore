@@ -1,26 +1,17 @@
 @extends('admin.layouts.default')
 
-@section('page-script')
-    <script src="{{ asset('assets/admin/js/custom/category.js') }}"></script>
-@endsection
-
 @section('main')
-{{-- {{ dd(count-$category) }} --}}
+
 <div class="container mx-auto px-4">
     <!-- Header Section -->
     <div class="flex flex-wrap items-center lg:items-end justify-between gap-5 pb-7">
         <div class="flex flex-col gap-2">
             <h1 class="text-2xl font-semibold text-gray-900">
-                Category
+                Orders
             </h1>
             <div class="flex items-center gap-2 text-sm font-medium text-gray-600">
                 <!-- Optional additional information can go here -->
             </div>
-        </div>
-        <div class="flex items-center gap-3">
-            <a class="px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                href="{{ route('category.create') }}">Add Category</a> 
-
         </div>
     </div>
 
@@ -29,7 +20,7 @@
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                 <h3 class="text-lg font-medium text-gray-800">
-                    Category
+                    Orders
                 </h3>
                 <td class="px-4 py-2 w-4 border text-left">
                     <div class="flex items-center gap-4 ">
@@ -90,7 +81,12 @@
                                     </th>
                                     <th class="px-4 py-2  text-left border min-w-[150px]">
                                         <span class="cursor-pointer">
-                                            Category
+                                            Orders
+                                        </span>
+                                    </th>
+                                    <th class="px-4 py-2  text-left border min-w-[150px]">
+                                        <span class="cursor-pointer">
+                                            See Orders
                                         </span>
                                     </th>
                                     <th class="px-4 py-2  w-24  text-left">
@@ -100,19 +96,24 @@
                             </thead>
                             
                             <tbody>
-                                @if (count($category) == 0)
+                                @if (count($orders) == 0)
                                 
                                     <tr>
                                         <td colspan="9" class="text-center">There is no record available.</td>
                                     </tr>
                                 @else
-                                    @foreach ($category as $key=>$category)
-                                        <tr class="text-gray-500" draggable="true" ondragstart="drag(event)" id="row-{{ $category->id }}">
+                                    @foreach ($orders as $key=>$order)
+                                        <tr class="text-gray-500" draggable="true" ondragstart="drag(event)" id="row-{{ $order->id }}">
                                             <td class="px-7 py-4 border-b font-medium  text-left w-5">
                                                 {{ $key + 1 }}
                                             </td>
                                             <td class="px-7 py-4  text-left font-medium border  min-w-[150px]">
-                                                {{ $category->category_name }}
+                                                {{ $order->user->first_name }} {{ $order->user->last_name }} 
+
+                                            </td>
+                                            <td class="px-7 py-4  text-left font-medium border  min-w-[150px]">
+                                                 <a href="{{ route('order.show', $order->id) }}" class="px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500">Orders</a>
+
                                             </td>
                                             <td class="px-4 py-2 w-4 border text-left">
                                                 <div class="flex items-center gap-4 ">
@@ -124,12 +125,6 @@
                                                         <!-- Action buttons -->
                                                         <div
                                                             class="absolute w-32 right-10 hidden bg-white shadow-lg rounded-md action-buttons">
-                                                            <div class="flex flex-row p-3">
-                                                                <i class="fa-solid fa-pen-to-square"></i>
-                                                                <button><a
-                                                                        href="{{ route('category.edit', $category->id) }}" 
-                                                                        class="px-4 py-2 font-medium  text-gray-800 ">Edit</a></button>
-                                                            </div>
                                                             <form
                                                                 action="" {{-- {{ route('admin.cities.destroy', $city->id) }} --}}
                                                                 method="POST" class="block">
@@ -175,4 +170,5 @@
         </div>
     </div>
 </div>
+    
 @endsection

@@ -22,4 +22,5 @@ Route::middleware(['admin'])->group(function() {
     Route::resource('cart', FronendCartController::class);
     Route::resource('orders', FrontendOrderController::class);
     Route::post('/session', [FrontendStripeController::class, 'session'])->name('stripe.session');
+    Route::post('/stripe/webhook', [FrontendStripeController::class, 'handleStripeWebhook']);
 }); 

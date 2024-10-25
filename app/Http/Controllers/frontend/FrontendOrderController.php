@@ -4,6 +4,8 @@ namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\CartMaster;
+use App\Models\OrderMaster;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontendOrderController extends Controller
@@ -26,6 +28,8 @@ class FrontendOrderController extends Controller
     public function create()
     {
         //
+        $user = User::get();
+        return view('frontend.orders.index', compact('user'));
     }
 
     /**
@@ -33,7 +37,24 @@ class FrontendOrderController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasFile('product_image')){
+            $file = $request->gile('product_image');
+            $filename = time().'.'.$file->getClientOriginalExtension();
+            $path = 'uplods/orderImage';
+            $file->move($path,$filename);
+        }
         //
+        $order = new OrderMaster();
+        $order->user_id = $request->user_id;
+        $order->product_name = $request->product_name;
+        $order->product_price = $request->product_price;
+        $order->final_price = $request->final_price;
+        $order->company_name = $request->company_name;
+        $order->user_address = $request->user_address;
+        $order->product_image = $request->product_image;
+        $order->product_quantity = $request->product_quantity;
+        $order->save();
+        return redirect()->route('dashboard');
     }
 
     /**

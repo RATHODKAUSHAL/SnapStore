@@ -70,6 +70,13 @@
                         <span>Product</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('order.index') }}" class="flex items-center hover:bg-gray-700 p-2 rounded">
+                        <i class="fa-solid fa-box mr-3"></i>
+                        <span>Orders</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
