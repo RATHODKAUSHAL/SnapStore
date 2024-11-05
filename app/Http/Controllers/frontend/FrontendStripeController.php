@@ -58,7 +58,7 @@ class FrontendStripeController extends Controller
         $session = \Stripe\Checkout\Session::create([
             'line_items' => $lineItems,
             'mode' => 'payment',
-            'success_url' => route('`dashboard`'),  // Success URL
+            'success_url' => route('dashboard'),  // Success URL
             'cancel_url' => route('cart.index'),  // Cancel URL
         ]);
 

@@ -17,6 +17,50 @@
             Explore Now
           </a>
         </div>
+        <div 
+          {{-- key={card.id}  --}}
+          class='bg-white border border-gray-200 shadow-lg w-72 p-5 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300'>
+          <h1 class='text-base font-bold mb-2'>SnapStore Devices</h1>
+          <img src="{{ asset('uplods/productImage/1729587799.png') }}" alt="" class='mt-4 rounded-md' /> {{--  --}}
+          <a 
+            href={card.link} 
+            class='text-blue-600 mt-4 inline-block font-semibold hover:underline'>
+            Explore Now
+          </a>
+        </div>
+        <div 
+          {{-- key={card.id}  --}}
+          class='bg-white border border-gray-200 shadow-lg w-72 p-5 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300'>
+          <h1 class='text-base font-bold mb-2'> Books</h1>
+          <img src="{{ asset('assets/img/Books.png') }}" alt="" class='mt-4 rounded-md' /> {{--  --}}
+          <a 
+            href={card.link} 
+            class='text-blue-600 mt-4 inline-block font-semibold hover:underline'>
+            Explore Now
+          </a>
+        </div>
+        <div 
+          {{-- key={card.id}  --}}
+          class='bg-white border border-gray-200 shadow-lg w-72 p-5 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300'>
+          <h1 class='text-base font-bold mb-2'> Games</h1>
+          <img src="{{ asset('assets/img/Games.png') }}" alt="" class='mt-4 rounded-md' /> {{--  --}}
+          <a 
+            href={card.link} 
+            class='text-blue-600 mt-4 inline-block font-semibold hover:underline'>
+            Explore Now
+          </a>
+        </div>
+        <div 
+          {{-- key={card.id}  --}}
+          class='bg-white border border-gray-200 shadow-lg w-72 p-5 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300'>
+          <h1 class='text-base font-bold mb-2'> Gifts</h1>
+          <img src="{{ asset('assets/img/Gift.png') }}" alt="" class='mt-4 rounded-md' /> {{--  --}}
+          <a 
+            href={card.link} 
+            class='text-blue-600 mt-4 inline-block font-semibold hover:underline'>
+            Explore Now
+          </a>
+        </div>
       {{-- ))} --}}
     </div>
 
