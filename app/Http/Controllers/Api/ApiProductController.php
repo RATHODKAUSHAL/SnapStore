@@ -21,7 +21,8 @@ class ApiProductController extends Controller
         if ($product->count() > 0) {
             return response()->json([
                 'status' => 200,
-                'product' => $product
+                'product' => $product->toArray(),
+                'success' => true
             ], 200);
         } else {
             return  response()->json([

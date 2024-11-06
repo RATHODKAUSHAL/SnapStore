@@ -54,9 +54,11 @@
 
             {{-- {/* Language Section */} --}}
             <div class='text-white flex items-center space-x-1'>
+                <i class="fa-solid fa-sort-down"></i>
                 <p>En</p>
+                <img src="https://flagsapi.com/IN/flat/32.png">
                 {{-- <ArrowDropDownIcon /> --}}
-                <i class="fa-solid fa-globe"></i>
+                {{-- <i class="fa-solid fa-globe"></i>   --}}
             </div>
 
             {{-- {/* Account Section */} --}}

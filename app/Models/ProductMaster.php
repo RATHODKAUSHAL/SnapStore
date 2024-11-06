@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,12 @@ class ProductMaster extends Model
 
     public function category(){
         return $this->belongsTo(categoryMaster::class, 'category_id');
+    }
+
+    protected function productImage() : Attribute
+    {
+        return Attribute::make(
+            get: fn(mixed $value) => $value ? asset($value) : null,
+        );
     }
 }

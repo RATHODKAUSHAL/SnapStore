@@ -11,7 +11,7 @@
     }
 </style>
 
-<div class="mt-10 mx-6">
+<div class="mt-14 mx-6">
     <div class="bg-yellow-200 p-4 rounded-sm relative">
         <h1 class="text-2xl font-bold">Blockbuster Deals</h1>
 
