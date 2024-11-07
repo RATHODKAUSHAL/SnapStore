@@ -92,21 +92,21 @@
 <nav class='h-10 bg-gray-800 w-full flex items-center text-white pl-2'>
     <div class='flex flex-row items-center justify-center '>
         {{-- <MenuOutlinedIcon sx={{color : "#FFFFFF"}}/> --}}
-        <ul class='flex flex-row gap-4'>
-            <li>All</li>
-            <li>MX Player</li>
-            <li>sell</li>
-            <li>Best Seller</li>
-            <li>Today's Deals</li>
-            <li>Mobile</li>
-            <li>Elecronics</li>
-            <li>Home & Kitchen</li>
-            <li>Prime</li>
-            <li>Customer Service</li>
-            <li>Fashion</li>
-            <li>New Realses</li>
-            <li>Amazon Pay</li>
-            <li>Computer</li>
+        <ul class='flex flex-row gap-4 cursor-pointer'>
+            <li class="hover:underline hover:text-orange-500">All</li>
+                <li class="hover:underline hover:text-orange-500">MX Player</li>
+                <li class="hover:underline hover:text-orange-500">sell</li>
+                <li class="hover:underline hover:text-orange-500">Best Seller</li>
+                <li class="hover:underline hover:text-orange-500">Today's Deals</li>
+                <li class="hover:underline hover:text-orange-500">Mobile</li>
+                <li class="hover:underline hover:text-orange-500">Electronics</li>
+                <li class="hover:underline hover:text-orange-500">Home & Kitchen</li>
+                <li class="hover:underline hover:text-orange-500">Prime</li>
+                <li class="hover:underline hover:text-orange-500">Customer Service</li>
+                <li class="hover:underline hover:text-orange-500">Fashion</li>
+                <li class="hover:underline hover:text-orange-500">New Releases</li>
+                <li class="hover:underline hover:text-orange-500">Amazon Pay</li>
+                <li class="hover:underline hover:text-orange-500">Computer</li>
 
         </ul>
     </div>
@@ -123,7 +123,7 @@
         </div>
         <div>
             <div class="flex flex-row">
-                <img class="m-5" src="{{ asset( $product->product_image ) }}" alt="">
+                <img class="m-5 " src="{{ asset( $product->product_image ) }}" alt="">
                 <div class="text-2xl font-medium">
                     <p>
                         {{ $product->product_description }}

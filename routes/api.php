@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\ApiCategoryController;
 use App\Http\Controllers\Api\ApiProductController;
+use App\Http\Controllers\Api\ApiSellerAuthController;
 use App\Http\Controllers\ApiTestingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,12 @@ Route::delete('customer/{id}/delete', [ApiTestingController::class, 'destroy']);
 
 
 // API for SnapStore 
-// Route::resource('product', [ApiProductController::class]);
+// Route::apiResource('product', [ApiProductController::class]);
 Route::get('product', [ApiProductController::class, 'index']);
 Route::post('product', [ApiProductController::class, 'store']);
 Route::get('product/{id}/edit', [ApiProductController::class, 'edit']);
 Route::put('product/{id}/edit', [ApiProductController::class, 'update']);
 
+Route::get('category', [ApiCategoryController::class, 'index']);
+
+Route::get("login", [ApiSellerAuthController::class, 'login']);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\categoryMaster;
 use App\Models\ProductMaster;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -83,7 +84,7 @@ class ApiProductController extends Controller
         $product = new ProductMaster();
         $product->product_name = $request->product_name;
         $product->company_name = $request->company_name;
-        $product->category_id = $request->category_id;
+        $product->category_id = (int) $request->category_id;
         $product->product_size = $request->product_size;
         $product->product_model = $request->product_model;
         $product->product_price = $request->product_price;
@@ -201,4 +202,5 @@ class ApiProductController extends Controller
     {
         //
     }
+
 }

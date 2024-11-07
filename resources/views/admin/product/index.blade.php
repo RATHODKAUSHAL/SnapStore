@@ -149,9 +149,9 @@
                                                     <img class="w-[80px]" src="{{ asset($product->product_image) }}"
                                                         alt="">
                                                 </td>
-                                                <td class="px-4 py-2 w-4 border text-left">
-                                                    <div class="flex items-center gap-4 ">
-                                                        <div class="relative">
+                                                <td class="px-4 py-2 w-4 border text-left ">
+                                                    <div class="flex items-center gap-4">
+                                                        <div class="relative z-50">
                                                             <button class="flex items-scenter focus:outline-none"
                                                                 onclick="toggleActions(event)">
 

@@ -29,7 +29,7 @@
             <!-- Wrap product card in a clickable link -->
             <a href="{{ route('products.show', $product) }}" class="bg-white p-3 w-64 flex-none flex flex-col rounded-md hover:shadow-lg transition-shadow duration-300"> <!-- Adjust width to fit more cards -->
                 <div class="">
-                    <img class="w-44 h-48" src="{{ asset($product->product_image) }}" alt="{{ $product->product_name }}">
+                    <img class="w-44 h-48 object-cover" src="{{ asset($product->product_image) }}" alt="{{ $product->product_name }}">
                 </div>
                 <div class="flex flex-row gap-2 mt-2">
                     <button class="bg-red-700 rounded-md p-1 text-sm text-white">-{{ $product->product_discount }}% off</button>
