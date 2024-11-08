@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CardHeadingMaster;
+use App\Models\ProductMaster;
 use Illuminate\Http\Request;
 
 class AdminCardHeadingController extends Controller
@@ -13,6 +15,7 @@ class AdminCardHeadingController extends Controller
     public function index()
     {
         //
+        return view('admin.heading.index');
     }
 
     /**
@@ -20,7 +23,8 @@ class AdminCardHeadingController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('admin.heading.create');
     }
 
     /**
@@ -29,6 +33,12 @@ class AdminCardHeadingController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'card_heading' => 'required|string|max:255'
+        ]);
+
+        $heading = new CardHeadingMaster();
+        $heading->card_heading = $request->card_heading;
     }
 
     /**

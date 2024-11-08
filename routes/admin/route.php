@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminCardHeadingController;
 use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\admin\AdminOrdersController;
@@ -16,3 +17,4 @@ Route::post('/categories/update-order', [AdminCategoryController::class, 'update
 Route::resource('admin/users',  AdminUsersController::class);
 Route::resource('admin/product', AdminProductController::class);
 Route::resource('admin/order', AdminOrdersController::class);
+Route::resource('admin/heading', AdminCardHeadingController::class);

@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('card_heading', function (Blueprint $table) {
             $table->id();
             $table->string('card_heading')->nullable();
-            $table->foreignId('product_id')->nullable();
             $table->timestamps();
         });
     }
