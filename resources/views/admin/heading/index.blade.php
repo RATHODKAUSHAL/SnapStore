@@ -1,16 +1,20 @@
 @extends('admin.layouts.default')
 
+@section('page-script')
+    <script src="{{ asset('assets/admin/js/custom/category.js') }}"></script>
+@endsection
+
 @section('main')
     <div class="container mx-auto px-4">
         <div class="flex flex-wrap items-center lg:items-end justify-between gap-5 pb-7">
             <div class="flex flex-col gap-2">
                 <h1 class="text-2xl font-semibold text-gray-900">
-                Card Heading
+                    Card Heading
                 </h1>
             </div>
             <div class="flex flex-col gap-3">
                 <a class="px-4 py-2 bg-orange-600 text-white text-sm font-semibold rounded-lg hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                href="{{ route('heading.create') }}">Add Card</a>
+                    href="{{ route('heading.create') }}">Add Card</a>
             </div>
         </div>
 
@@ -78,17 +82,12 @@
                                     <tr>
                                         <th class="px-4 py-2 border text-left w-5">
                                             <span class="cursor-pointer">
-                                                #
+                                            #
                                             </span>
                                         </th>
                                         <th class="px-4 py-2  text-left border min-w-[150px]">
                                             <span class="cursor-pointer">
-                                                Card Heading
-                                            </span>
-                                        </th>
-                                        <th class="px-4 py-2  text-left border min-w-[150px]">
-                                            <span class="cursor-pointer">
-                                                Product
+                                            Card Heading
                                             </span>
                                         </th>
                                         <th class="px-4 py-2  w-24  text-left">
@@ -97,32 +96,19 @@
                                     </tr>
                                 </thead>
 
-                                {{-- <tbody>
-                                    @if (count($products) == 0)
+                                <tbody>
+                                    @if (count($heading) == 0)
                                         <tr>
                                             <td colspan="9" class="text-center">There is no record available.</td>
                                         </tr>
                                     @else
-                                        @foreach ($products as $key => $product)
+                                        @foreach ($heading as $key => $Heading)
                                             <tr class="text-gray-500">
                                                 <td class="px-5 py-3 border-b font-medium  text-left w-5">
                                                     {{ $key + 1 }}
                                                 </td>
                                                 <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
-                                                    {{ $product->product_name }}
-                                                </td>
-                                                <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
-                                                    {{ $product->company_name }}
-                                                </td>
-                                                <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
-                                                    {{ $product->category->category_name }}
-                                                </td>
-                                                <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
-                                                    {{ $product->final_price }}
-                                                </td>
-                                                <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
-                                                    <img class="w-[80px]" src="{{ asset($product->product_image) }}"
-                                                        alt="">
+                                                    {{ $Heading->card_heading }}
                                                 </td>
                                                 <td class="px-4 py-2 w-4 border text-left ">
                                                     <div class="flex items-center gap-4">
@@ -137,10 +123,10 @@
                                                                 <div class="flex flex-row p-3">
                                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                                     <button><a
-                                                                            href="{{ route('product.edit', $product->id) }}"
+                                                                            href="{{ route('heading.edit', $Heading->id) }}"
                                                                             class="px-4 py-2 font-medium  text-gray-800 ">Edit</a></button>
                                                                 </div>
-                                                                <form action="{{ route('product.destroy', $product->id) }}"
+                                                                <form action="{{ route('heading.destroy', $Heading->id) }}"
                                                                     method="POST" class="block">
                                                                     @csrf
                                                                     @method('DELETE')
@@ -158,7 +144,7 @@
                                             </tr>
                                         @endforeach
                                     @endif
-                                </tbody> --}}
+                                </tbody>
                             </table>
                         </div>
                         {{-- <div class="flex justify-between items-center p-4 text-gray-600 text-sm">

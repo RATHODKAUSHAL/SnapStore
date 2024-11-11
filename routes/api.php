@@ -29,4 +29,13 @@ Route::put('product/{id}/edit', [ApiProductController::class, 'update']);
 
 Route::get('category', [ApiCategoryController::class, 'index']);
 
-Route::get("login", [ApiSellerAuthController::class, 'login']);
+
+// Public routes, no token required
+Route::post("register", [ApiSellerAuthController::class, 'register']);
+Route::get('register', [ApiSellerAuthController::class, 'index']);
+
+
+Route::middleware('seller')->group(function () {
+    // Route::post('logout', [ApiSellerAuthController::class, 'logout']);
+    // Route::get('register', [ApiSellerAuthController::class, 'index']);
+});

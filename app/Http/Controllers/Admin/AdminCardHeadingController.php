@@ -15,7 +15,8 @@ class AdminCardHeadingController extends Controller
     public function index()
     {
         //
-        return view('admin.heading.index');
+        $heading = CardHeadingMaster::get();
+        return view('admin.heading.index', compact('heading'));
     }
 
     /**
@@ -39,6 +40,8 @@ class AdminCardHeadingController extends Controller
 
         $heading = new CardHeadingMaster();
         $heading->card_heading = $request->card_heading;
+        $heading->save();
+        return redirect()->route('heading.index')->with('success', 'Card Heading Added Successfully');
     }
 
     /**
@@ -55,6 +58,8 @@ class AdminCardHeadingController extends Controller
     public function edit(string $id)
     {
         //
+        $heading = CardHeadingMaster::findOrFail($id);
+        return view('admin.heading.create', compact('heading'));
     }
 
     /**
@@ -63,13 +68,29 @@ class AdminCardHeadingController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $heading = CardHeadingMaster::find($id);
+
+        if(!$heading){
+            return redirect()->route('heading.index')->with('error', 'Card Heading Not Found');
+        }
+
+        $request->validate([
+            'card_heading' => 'required|string|max:255'
+        ]);
+
+        $heading->card_heading = $request->card_heading;
+        $heading->save();
+        return redirect()->route('heading.index')->with('success', 'Card Heading Updated Successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request,string $id)
     {
         //
+        $heading = CardHeadingMaster::find($id);
+        $heading->delete($request->all());
+        return redirect()->route('heading.index')->with('success', 'Card Heading Deleted Successfully');
     }
 }

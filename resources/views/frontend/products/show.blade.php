@@ -123,7 +123,7 @@
         </div>
         <div>
             <div class="flex flex-row">
-                <img class="m-5 " src="{{ asset( $product->product_image ) }}" alt="">
+                <img class="m-5" src="{{ asset( $product->product_image ) }}" alt="">
                 <div class="text-2xl font-medium">
                     <p>
                         {{ $product->product_description }}

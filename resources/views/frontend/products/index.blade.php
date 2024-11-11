@@ -16,10 +16,10 @@
         <h1 class="text-2xl font-bold">Blockbuster Deals</h1>
 
         <!-- Left and Right Scroll Buttons -->
-        <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10">
+        <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-black text-3xl  rounded-full z-10">
             <i class="fa-solid fa-angle-left"></i>
         </button>
-        <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full z-10">
+        <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2  text-black text-3xl  rounded-full z-10">
             <i class="fa-solid fa-angle-right"></i>
         </button>
 
@@ -56,14 +56,14 @@
 
     scrollLeftButton.addEventListener('click', () => {
         productContainer.scrollBy({
-            left: -300, // Scroll left by 300px
+            left: -1000, // Scroll left by 1000px
             behavior: 'smooth'
         });
     });
 
     scrollRightButton.addEventListener('click', () => {
         productContainer.scrollBy({
-            left: 300, // Scroll right by 300px
+            left: 1000, // Scroll right by 1000px
             behavior: 'smooth'
         });
     });

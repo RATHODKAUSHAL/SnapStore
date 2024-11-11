@@ -27,7 +27,7 @@
                 </h3>
             </div>
 
-            <form method="POST" action="">
+            <form method="POST" action="@if(@$heading) {{route('heading.update', $heading)}} @else {{ route('heading.store') }} @endif">
                 @csrf
                 @if (@$heading)
                     {{ method_field('PUT') }}
@@ -37,10 +37,16 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                     <div class="flex flex-col">
                         <div>
-                            <label for="product_name" class="block text-sm font-medium text-gray-500 mb-2">Card Heading</label>
+                            <label for="card_heading" class="block text-sm font-medium text-gray-500 mb-2">Card
+                                Heading</label>
                             <input
                                 class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                id="product_name" name="product_name" type="text" placeholder="Enter a Card Heading" />
+                                id="card_heading" name="card_heading" type="text"
+                                value="{{ old('card_heading', @$heading->card_heading) }}"
+                                placeholder="Enter a Card Heading" />
+                            @if ($errors->has('card_heading'))
+                                <p class="mt-2 text-sm text-red-600">{{ $errors->first('card_heading') }}</p>
+                            @endif
                         </div>
                     </div>
                 </div>

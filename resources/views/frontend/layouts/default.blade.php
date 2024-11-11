@@ -71,7 +71,7 @@
             <div
                 class='flex items-center flex-grow mx-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500'>
                 <select data-url="{{ route('find.category') }}" name="category_name" id="category_name"
-                    class='bg-gray-300 text-sm text-black py-[10px] gap-2 px-4 rounded-l-md flex items-center hover:bg-gray-400 transition duration-200'>
+                    class='bg-gray-300 text-sm text-black py-[10px]  px-4 rounded-l-md flex items-center hover:bg-gray-400 transition duration-300'>
                     <option class="bg-white" value="All category">All</option>
                     @foreach ($category as $category)
                         <option class="bg-white" value="{{ $category->id }}">{{ $category->category_name }}</option>
