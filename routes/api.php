@@ -32,10 +32,13 @@ Route::get('category', [ApiCategoryController::class, 'index']);
 
 // Public routes, no token required
 Route::post("register", [ApiSellerAuthController::class, 'register']);
-Route::get('register', [ApiSellerAuthController::class, 'index']);
+
 
 
 Route::middleware('seller')->group(function () {
     // Route::post('logout', [ApiSellerAuthController::class, 'logout']);
     // Route::get('register', [ApiSellerAuthController::class, 'index']);
+    Route::post('login', [ApiSellerAuthController::class, 'login']);
+Route::get('register', [ApiSellerAuthController::class, 'index']);
+
 });

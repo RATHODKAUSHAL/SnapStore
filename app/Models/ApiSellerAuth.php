@@ -21,7 +21,7 @@ class ApiSellerAuth extends Authenticatable implements JWTSubject
     ];
 
     protected $hidden = [
-        'password',
+        // 'password',
         'remember_token',
     ];
 

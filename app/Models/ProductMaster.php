@@ -27,4 +27,8 @@ class ProductMaster extends Model
             get: fn(mixed $value) => $value ? asset($value) : null,
         );
     }
+
+    public function cardheading(){
+        return $this->belongsToMany(CardHeadingMaster::class, 'card'); 
+    }
 }

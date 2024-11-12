@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Stripe\Climate\Product;
 
 class CardHeadingMaster extends Model
 {
@@ -14,4 +15,9 @@ class CardHeadingMaster extends Model
     protected $fillable = [
         'card_heading'
     ];
+
+    public function product() {
+        return $this->belongsToMany(Product::class, 'card');
+    }
+
 }

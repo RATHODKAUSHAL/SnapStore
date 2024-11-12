@@ -4,32 +4,46 @@ namespace App\Http\Middleware\Admin;
 
 use Closure;
 use Illuminate\Http\Request;
-use Laravel\Sanctum\PersonalAccessToken;
+use Tymon\JWTAuth\Facades\JWTAuth;
+// use Illuminate\Support\Facades\Log;
 
 class SellerAuthMiddleware
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return \Illuminate\Http\Response
      */
     public function handle(Request $request, Closure $next)
     {
+        // Get the JWT token from the request's Authorization header
         $token = $request->bearerToken();
-
-        if(!$token) {
-            return response()->json(['message' => 'Token not Provided'], 401);
+        // dd($token);
+        // If no token is provided, return an error response
+        if (!$token) {
+            return response()->json(['message' => 'Token not provided'], 401);
         }
 
-        $accessToken = PersonalAccessToken::findToken($token);
-
-        if(!$accessToken || !$accessToken->tokenable()){    
-            return response()->json(['message' => 'Invalid or expired token'], 401);
+        try {
+            // Try to parse and authenticate the token
+            $seller = JWTAuth::parseToken()->authenticate();
+           
+            // If authentication fails, return an error response
+            if (!$seller) {
+                return response()->json(['message' => 'User not found'], 404);
+            }
+            
+            // Set the authenticated user to the request for further use
+            $request->attributes->set('ApiSellerAuth', $seller);
         }
-
-        //Authenticate the user with the tokenable model(usually the User model)
-        $request->ApiSellerAuth = $accessToken->tokenable;
-
+         catch (\Exception $e) {
+            // Catch errors like token not found or expired
+            // dd($token);
+            return response()->json(['message' => 'Token invalid or expired'], 401);
+        }
+        // Proceed with the next middleware or controller
         return $next($request);
     }
 }

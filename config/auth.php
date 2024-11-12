@@ -18,6 +18,11 @@ return [
         'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
     ],
 
+    'defaults' => [
+        'guard' =>  env('AUTH_GUARD', 'seller'),
+        'passwords' => env('AUTH_PASSWORD_BROKER', 'users'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -39,6 +44,10 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'seller' => [
+            'driver' => 'jwt',  // Set JWT as the driver for the custom guard
+            'provider' => 'sellers',  // Reference the seller provider you’ll define next
         ],
     ],
 
@@ -63,6 +72,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
+        ],
+
+        'sellers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\ApiSellerAuth::class,  // Adjust based on your actual Seller model path
         ],
 
         // 'users' => [
