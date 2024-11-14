@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('card', function (Blueprint $table) {
             $table->id();
             $table->foreignId('card_heading_id');
-            $table->foreignId('product_id');
+            $table->foreignId('product_id')->nullable();
             $table->timestamps();
             $table->foreign('card_heading_id')->references('id')->on('card_heading')->onDelete('cascade');
             $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');

@@ -16,10 +16,10 @@
         <h1 class="text-2xl font-bold">Blockbuster Deals</h1>
 
         <!-- Left and Right Scroll Buttons -->
-        <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-black text-3xl  rounded-full z-10">
+        <button id="scrollLeft" class="absolute bg-gray-100  border h-20 left-1  top-1/2 transform -translate-y-1/2 text-black text-3xl   z-10">
             <i class="fa-solid fa-angle-left"></i>
         </button>
-        <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2  text-black text-3xl  rounded-full z-10">
+        <button id="scrollRight" class="absolute  bg-gray-100  border h-20 right-1 top-1/2 transform -translate-y-1/2  text-black text-3xl   z-10">
             <i class="fa-solid fa-angle-right"></i>
         </button>
 

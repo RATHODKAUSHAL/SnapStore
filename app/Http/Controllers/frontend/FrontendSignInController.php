@@ -34,7 +34,7 @@ class FrontendSignInController extends Controller
         $users->first_name = $request->first_name;
         $users->last_name = $request->last_name;
         $users->email = $request->email;
-        $users->password = $request->password;
+        $users->password = bcrypt($request->password);
         $users->save();
 
         return  redirect()->route('auth.login');

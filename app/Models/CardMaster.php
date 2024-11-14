@@ -12,6 +12,6 @@ class CardMaster extends Model
     protected $table = "card";
 
     protected $fillable = [
-        'card_heading_id', 'product_id'
+        
     ];
 }

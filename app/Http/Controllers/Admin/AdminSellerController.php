@@ -3,12 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\CardHeadingMaster;
-use App\Models\CardMaster;
-use App\Models\ProductMaster;
+use App\Models\ApiSellerAuth;
 use Illuminate\Http\Request;
 
-class AdminCardController extends Controller
+class AdminSellerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +14,8 @@ class AdminCardController extends Controller
     public function index()
     {
         //
-        $products = ProductMaster::get();
-        $cardheading = CardHeadingMaster::get();
-        return view('admin.card.index', [
-            'products' => $products,
-            'cardheading' => $cardheading
-        ]);
+        $seller = ApiSellerAuth::get();
+        return view('admin.seller.index', compact('seller'));
     }
 
     /**
@@ -30,12 +24,6 @@ class AdminCardController extends Controller
     public function create()
     {
         //
-        $products = ProductMaster::get();
-        $cardheading = CardHeadingMaster::get();
-        return view('admin.card.create', [
-            'products' => $products,
-            'cardheading' => $cardheading
-        ]);
     }
 
     /**
@@ -43,14 +31,8 @@ class AdminCardController extends Controller
      */
     public function store(Request $request)
     {
-
-        $cardHeadingMaster = CardHeadingMaster::findOrFail($request->card_heading); 
-        
-        $cardHeadingMaster->products()->sync($request->product);
-        // dd($cardHeadingMaster->products);
-        return redirect()->route('card.index')->with('success', 'Card created successfully.');
+        //
     }
-
 
     /**
      * Display the specified resource.

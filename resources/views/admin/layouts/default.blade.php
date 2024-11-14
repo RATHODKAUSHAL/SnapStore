@@ -86,6 +86,18 @@
                         <span>Heading</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('card.index') }}" class="flex items-center hover:text-white p-2 rounded">
+                        <i class="fa-solid fa-box mr-3"></i>
+                        <span>Card</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('seller.index') }}" class="flex items-center hover:text-white p-2 rounded">
+                        <i class="fa-solid fa-user mr-3"></i>
+                        <span>Seller</span>
+                    </a>
+                </li>
             </ul>
         </nav>
 
