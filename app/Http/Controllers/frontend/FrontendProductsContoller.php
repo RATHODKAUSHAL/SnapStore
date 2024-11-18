@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CardHeadingMaster;
 use App\Models\categoryMaster;
 use App\Models\ProductMaster;
 use Illuminate\Http\Request;
@@ -15,6 +16,9 @@ class FrontendProductsContoller extends Controller
     public function index()
     {
         //
+        // $products = ProductMaster::get();
+        // $cardheading = CardHeadingMaster::get();
+        // return view('frontend.products')
     }
 
     /**

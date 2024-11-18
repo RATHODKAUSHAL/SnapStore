@@ -1,46 +1,45 @@
-
-
 <footer>
-    <section class="bg-gray-700 h-10 flex items-center text-white justify-center cursor-pointer">
+    <!-- Back to Top Section -->
+    <section class="bg-gray-700 h-12 flex items-center text-white justify-center cursor-pointer hover:bg-gray-600 transition">
         <p>Back To Top</p>
     </section>
-    <section class="bg-gray-800 flex items-center text-white justify-center  gap-20 p-10">
+    
+    <!-- Main Links Section -->
+    <section class="bg-gray-800 text-white p-10 flex flex-wrap justify-center gap-10 md:gap-20 text-sm">
         <div>
-            <h1 class="font-bold">Get to know Us</h1>
-            <ul>
+            <h1 class="font-bold mb-4 text-base">Get to Know Us</h1>
+            <ul class="space-y-2 text-gray-300 hover:text-white">
                 <li>About Snapshore</li>
-                <li>career</li>
-                <li>news release</li>
+                <li>Careers</li>
+                <li>News Release</li>
                 <li>Snapstore Science</li>
             </ul>
         </div>
         <div>
-            <h1 class="font-bold">Connect With Us</h1>
-            <ul>
+            <h1 class="font-bold mb-4 text-base">Connect With Us</h1>
+            <ul class="space-y-2 text-gray-300 hover:text-white">
                 <li>Facebook</li>
-                <li>instagram</li>
-                <li>Github</li>
+                <li>Instagram</li>
+                <li>GitHub</li>
                 <li>Twitter</li>
             </ul>
         </div>
         <div>
-            <h1 class="font-bold">Make Money With Us</h1>
-            <ul>
+            <h1 class="font-bold mb-4 text-base">Make Money With Us</h1>
+            <ul class="space-y-2 text-gray-300 hover:text-white">
                 <li>Sell on Snapshore</li>
                 <li>Sell under Snapshore Accelerator</li>
                 <li>Protect and Build Your Brand</li>
                 <li>Snapshore Global Selling</li>
                 <li>Supply to Snapshore</li>
-                <li>Become an Affiliate
-                    Fulfilment by Snapshore</li>
+                <li>Become an Affiliate</li>
                 <li>Advertise Your Products</li>
-                <li>Amazon Pay on Merchants
-                </li>
+                <li>Amazon Pay on Merchants</li>
             </ul>
         </div>
         <div>
-            <h1 class="font-bold">Let Us Help You</h1>
-            <ul>
+            <h1 class="font-bold mb-4 text-base">Let Us Help You</h1>
+            <ul class="space-y-2 text-gray-300 hover:text-white">
                 <li>Your Account</li>
                 <li>Returns Centre</li>
                 <li>Recalls and Product Safety Alerts</li>
@@ -50,73 +49,50 @@
             </ul>
         </div>
     </section>
-    <section class="bg-gray-700 border-gray-500 border-t  text-white h-20 flex gap-5 items-center justify-center">
-        <div>
-            <img class="h-14 w-20" src="{{ asset('assets/img/SnapStore.png') }}" alt="Snapstore">
-        </div>
-        <button class="border rounded-md p-2">
-            <i class="fa-solid fa-globe"></i>
-            English
+
+    <!-- Logo and Language Section -->
+    <section class="bg-gray-700 border-t border-gray-600 text-white h-24 flex flex-col sm:flex-row items-center justify-center gap-4 p-4">
+        <img class="h-16 w-20" src="{{ asset('assets/img/SnapStore.png') }}" alt="Snapstore Logo">
+        <button class="border border-gray-500 rounded-md py-2 px-4 flex items-center gap-2 hover:bg-gray-600 transition">
+            <i class="fa-solid fa-globe"></i> English
         </button>
-        <button class="border rounded-md p-2">
-            <i class="fa-solid fa-globe"></i>
-            india
+        <button class="border border-gray-500 rounded-md py-2 px-4 flex items-center gap-2 hover:bg-gray-600 transition">
+            <i class="fa-solid fa-globe"></i> India
         </button>
     </section>
-    <section class="bg-gray-800 p-10 flex-col flex text-[10px] gap-4 items-center justify-center text-gray-400">
-        <div class="flex items-center justify-between w-1/2">
+
+    <!-- Additional Links Section -->
+    <section class="bg-gray-800 p-8 text-xs text-gray-400 flex flex-col items-center gap-6">
+        <div class="flex flex-wrap justify-center gap-8 w-full max-w-4xl">
             <div>
-                <h1 class="font-bold">AbeBooks</h1>
-                <p>AbeBooks
-                    Books, art</p>
-                <p>& collectibles</p>
+                <h1 class="font-semibold">AbeBooks</h1>
+                <p>Books, Art & Collectibles</p>
             </div>
             <div>
-                <h1 class="font-bold">Snapshore Web Services</h1>
-                <p>Scalable Cloud</p>
-                <p>Computing Services</p>
+                <h1 class="font-semibold">Snapshore Web Services</h1>
+                <p>Scalable Cloud Computing Services</p>
             </div>
             <div>
-                <h1 class="font-bold">Audible</h1>
-                <p>Download
-                </p>
-                <p>Audio Books</p>
+                <h1 class="font-semibold">Audible</h1>
+                <p>Download Audio Books</p>
             </div>
             <div>
-                <h1 class="font-bold">IMDb</h1>
-                <p>Movies, TV
-                </p>
-                <p>& Celebrities</p>
-            </div>
-        </div>
-        <div class="flex items-center justify-between w-1/2">
-            <div>
-                <h1 class="font-bold">Shopbop</h1>
-                <p>Designer</p>
-                <p>Fashion Brands</p>
+                <h1 class="font-semibold">IMDb</h1>
+                <p>Movies, TV & Celebrities</p>
             </div>
             <div>
-                <h1 class="font-bold">Snapshore Business</h1>
-                <p>Everything For</p>
-                <p>Your Business</p>
+                <h1 class="font-semibold">Shopbop</h1>
+                <p>Designer Fashion Brands</p>
             </div>
             <div>
-                <h1 class="font-bold">Audible</h1>
-                <p>Download</p>
-                <p>Audio Books</p>
-            </div>
-            <div>
-                <h1 class="font-bold">IMDb</h1>
-                <p>Movies, TV</p>
-                <p>& Celebrities</p>
+                <h1 class="font-semibold">Snapshore Business</h1>
+                <p>Everything for Your Business</p>
             </div>
         </div>
-        <div class="text-sm text-gray-400 p-3">
-            <p>Conditions of Use & Sale Privacy Notice
-            </p>
-            <p>Interest-Based Ads
-                © 1996-2024, Amazon.com, Inc. or its affiliates.</p>
+        
+        <div class="text-center text-gray-500 mt-4">
+            <p>Conditions of Use & Sale | Privacy Notice | Interest-Based Ads</p>
+            <p>© 1996-2024, Amazon.com, Inc. or its affiliates.</p>
         </div>
     </section>
 </footer>
-    

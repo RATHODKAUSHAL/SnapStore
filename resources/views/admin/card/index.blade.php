@@ -125,7 +125,10 @@
                                                 <td class="px-5 py-3  text-left font-medium border  min-w-[80px]">
                                                     <ul>
                                                         @foreach ($Cardheading->products as $product)
-                                                            <li>{{ $product->product_name }}</li>
+                                                        <img class="w-[80px] p-1 flex" src="{{ asset($product->product_image) }}"
+                                                        alt="">
+                                                        {{ $product->product_name }}
+                                                        <hr>
                                                         @endforeach
                                                     </ul>
                                                 </td>

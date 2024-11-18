@@ -54,25 +54,27 @@
 
 <body>
 
-    <div class='h-16 bg-gray-900 w-full flex items-center p-4 shadow-lg'>
-        <nav class='flex items-center justify-between w-full'>
-            <img class='h-14 w-20' src="{{ asset('assets/img/SnapStore.png') }}" alt="SnapStore" />
+    <div class='h-16 bg-gray-900 flex items-center p-4 shadow-lg'>
+        <nav class='flex items-center justify-center w-full'>
+            <div class="hover:border px-4 flex items-center justify-center">
+                <img class='h-14 w-20' src="{{ asset('assets/img/SnapStore.png') }}" alt="SnapStore" /> 
+            </div>
 
             {{-- Location Section --}}
-            <div class='flex items-center text-white space-x-2'>
+            <div class='flex items-center justify-center hover:border px-4 text-white space-x-2'>
                 <i class="fa-solid fa-location-dot"></i>
                 <div class='flex flex-col'>
-                    <p class='text-[11px]'>Delivering to Ahmedabad</p>
+                    <p class='text-sm'>Delivering to Ahmedabad</p>
                     <p class='font-bold cursor-pointer hover:underline text-sm'>Update Your Location</p>
                 </div>
             </div>
 
             {{-- Search Section --}}
             <div
-                class='flex items-center flex-grow mx-4 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500'>
+                class='flex items-center justify-center flex-grow rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500'>
                 <select data-url="{{ route('find.category') }}" name="category_name" id="category_name"
                     class='bg-gray-300 text-sm text-black py-[10px]  px-4 rounded-l-md flex items-center hover:bg-gray-400 transition duration-300'>
-                    <option class="bg-white" value="All category">All</option>
+                    <option class="bg-white" value="All category">All category</option>
                     @foreach ($category as $category)
                         <option class="bg-white" value="{{ $category->id }}">{{ $category->category_name }}</option>
                     @endforeach
@@ -86,24 +88,28 @@
             </div>
 
             {{-- Language Section --}}
-            <div class='text-white flex items-center space-x-1'>
+            <div class='text-white hover:border p-3 flex items-center space-x-1'>
                 <i class="fa-solid fa-sort-down"></i>
-                <p>En</p>
-                <img src="https://flagsapi.com/IN/flat/32.png">
+                <p class="text-sm">En</p>
+                <img class="text-sm" src="https://flagsapi.com/IN/flat/32.png">
             </div>
 
             {{-- Account Section with Dropdown --}}
-            <div class='flex flex-col text-white text-right ml-4 account-section'>
-                <div class="flex items-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-sort-down"></i>
+            <div class='flex flex-col text-white text-right account-section'>
+                <div class="flex flex-col items-center hover:border px-4  cursor-pointer w-40">
+                    <div>
+                        <i class="fa-solid fa-sort-down"></i>
                     @auth
                         <a href="" class='text-sm'>Hello, {{ auth()->user()->last_name }}</a>
                     @endauth
                     @guest
                         <a href="{{ route('auth.login') }}" class='text-sm'>Hello, sign in</a>
                     @endguest
+                    </div>
+                    <div>
+                        <p class='font-bold text-[sm hover:underline cursor-pointer'>Account & Lists</p>
+                    </div>
                 </div>
-                <p class='font-bold text-sm hover:underline cursor-pointer'>Account & Lists</p>
 
                 <!-- Dropdown Menu -->
                 <div class="account-dropdown bg-white text-gray-800">
@@ -169,8 +175,17 @@
                 </div>
             </div>
 
+            {{-- Return policy --}}
+           <div class="px-4 hover:border flex items-center justify-center">
+                <a href="{{ route('cart.index') }}"
+                    class='text-white text-sm flex flex-col items-center  hover:underline'>
+                    <p class="font-semibold">Return</p>
+                     <p class="text-sm">& Orders</p>
+                </a>
+            </div>
+
             {{-- Cart Section --}}
-            <div>
+            <div class="p-4 hover:border  flex items-center justify-center">
                 <a href="{{ route('cart.index') }}"
                     class='text-white text-lg flex items-center gap-2 hover:underline'>
                     <i class="fa-solid fa-cart-shopping"></i>
@@ -180,10 +195,10 @@
         </nav>
     </div>
 
-    <nav class='h-10 bg-gray-800 w-full flex items-center text-white pl-2'>
+    <nav class='h-10 bg-gray-800 w-full flex items-center text-white pl-5'>
         <div class='flex flex-row items-center justify-center'>
             <ul class='flex flex-row gap-4 cursor-pointer'>
-                <li class="hover:underline hover:text-orange-500">All</li>
+                <li class="hover:underline hover:text-orange-500"><i class="fa-solid fa-bars"></i> All</li>
                 <li class="hover:underline hover:text-orange-500">MX Player</li>
                 <li class="hover:underline hover:text-orange-500">sell</li>
                 <li class="hover:underline hover:text-orange-500">Best Seller</li>

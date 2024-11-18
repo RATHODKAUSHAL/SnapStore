@@ -4,7 +4,7 @@
 
 <div class='relative flex flex-col'>
     {{-- Multiple Promotion Cards --}}
-    <div class='absolute top-3/4 left-5 transform -translate-y-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 z-20'>
+    <div class='absolute top-3/4 left-6 right-10 transform -translate-y-1/2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 z-20'>
       @php
         $cardsData = [
             ['title' => 'Great Indian festival | New deals added everyday', 'img' => 'assets/img/festival_diwali.jpg', 'link' => '#'],
@@ -16,10 +16,10 @@
       @endphp
 
       @foreach($cardsData as $card)
-        <div class='bg-white border border-gray-200 shadow-lg w-72 p-5 rounded-lg transition-transform transform hover:scale-105 hover:shadow-xl duration-300'>
+        <div class='bg-white border border-gray-200 shadow-lg w-72 p-5 rounded-lg transition-transform transform  duration-300'>
           <h1 class='text-base font-bold mb-2'>{{ $card['title'] }}</h1>
           <img src="{{ asset($card['img']) }}" alt="{{ $card['title'] }}" class='mt-4 rounded-md' />
-          <a href="{{ $card['link'] }}" class='text-blue-600 mt-4 inline-block font-semibold hover:underline'>
+          <a href="{{ $card['link'] }}" class='text-blue-600 mt-4 inline-block  font-semibold hover:underline'>
             Explore Now
           </a>
         </div>
@@ -27,12 +27,15 @@
     </div>
 
     {{-- Background Image --}}
-    <div class='relative w-full h-auto'>
-      <img class='w-full h-[600px] object-cover z-0' src="{{ asset('assets/img/home_diwali.jpg') }}" alt="Home Diwali" />
-      
+    <div class="relative w-full h-auto">
+      <img class="w-full h-[600px] object-cover z-0" src="{{ asset('assets/img/header.jpg') }}" alt="Home Diwali" />
+  
       {{-- Gradient Background --}}
-      <div class='absolute bottom-0 w-full h-80 bg-gradient-to-b from-purple-800 to-white z-10'></div>
-    </div>
+      <div
+          class="absolute bottom-0 w-full h-80 bg-gradient-to-b from-transparent via-black to-gray-50 z-10">
+      </div>
+  </div>
+  
 </div>
 
 @endsection
