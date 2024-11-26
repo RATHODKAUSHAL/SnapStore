@@ -144,7 +144,7 @@
                                     <button type="submit" class="hover:text-teal-500 hover:underline">Delete</button> |
                                 </form>
                                 <a class="hover:text-teal-500 hover:underline" href="">Save For later</a> |
-                                <a class="hover:text-teal-500 hover:underline" href="">See More Like This</a> |
+                                <a class="hover:text-teal-500 hover:underline" href="{{ route('dashboard') }}">See More Like This</a> |
                                 <a class="hover:text-teal-500 hover:underline" href="">Share</a>
                             </div>
                         </div>

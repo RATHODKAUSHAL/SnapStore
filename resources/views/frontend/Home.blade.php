@@ -32,7 +32,7 @@
   
       {{-- Gradient Background --}}
       <div
-          class="absolute bottom-0 w-full h-80 bg-gradient-to-b from-transparent via-black to-gray-50 z-10">
+          class="absolute bottom-0 w-full h-80 bg-gradient-to-b from-transparent via-black to-red-700 z-10">
       </div>
   </div>
   

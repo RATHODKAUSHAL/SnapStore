@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\CardHeadingMaster;
 use App\Models\CartMaster;
 use App\Models\ProductMaster;
 use App\Models\User;
@@ -18,10 +19,12 @@ class FronendCartController extends Controller
     {
         //
         $cart = CartMaster::where('user_id',auth()->user()->id)->get();
+        $cardheading = CardHeadingMaster::get();
         $products = ProductMaster::get();
         return view('frontend.cart.index', [
             'cart' => $cart,
             'products' => $products,
+            'cardheading' => $cardheading,
         ]);
         
     }
